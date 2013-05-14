@@ -1,0 +1,105 @@
+<div id="sidebar-left"> 
+    <div class="row"> 
+        <ul id="sub-nav" class="without-icons">
+            <li>
+                <a class="<?php echo $this->ControllerName() == "User\Controller\Billing" && $this->ActionName() == "overview" ? "active" : ""; ?>" href="<?php echo $this->url('billing', array('action' => 'overview')) ?>"><?php echo $this->translate('Overview') ?></a>                                      
+            </li> 
+            <li> 
+                <a class="<?php echo $this->ControllerName() == "User\Controller\Billing" && $this->ActionName() == "detail" ? "active" : ""; ?>" href="<?php echo $this->url('billing', array('action' => 'detail')) ?>"><?php echo $this->translate('Billing Details') ?></a>
+            </li> 
+            <li> 
+                <a href="#"><?php echo $this->translate('Invoices') ?></a>
+            </li> 
+            <li> 
+                <a class="<?php echo $this->ControllerName() == "User\Controller\Billing" && $this->ActionName() == "buy-credits" ? "active" : ""; ?>" href="<?php echo $this->url('billing', array('action' => 'buy-credits')) ?>"><?php echo $this->translate('Selected Plan') ?></a>
+            </li> 
+        </ul> 
+    </div> 
+</div>
+<div id="content" class="fixed-width"> 
+    <div id="content-inner"> 
+        <ul class="breadcrumb"> 
+            <li><a href="#"><?php echo $this->translate('Billing') ?></a> <span class="right-arrow"></span></li> 
+            <li><?php echo $this->translate('Overview') ?></li> 
+        </ul>   
+        <p class="h-space-1"></p>
+        <div>                
+            <h2><?php echo $this->translate('Your Billing Details') ?></h2>
+        </div>
+        <div class="h-line"> </div>
+        <p class="h-space-1"> </p>
+        <div>                
+            <h2><?php echo $this->translate('Your Credits') ?></h2>
+        </div>
+
+        <?php foreach ($sites as $site): ?>
+            <?php foreach ($site as $record): ?>
+                <div class="subtitle">
+                    <div style="float: left; padding: 4px;"><b><?php echo $record['domain'] ?></b> </div>
+                    <div style="width: 90px; float: right;">
+                        <a class="green" href="<?php echo $this->url('billing', array('action' => 'buy-credits', 'id' => $record['site_id'])); ?>">
+                            <?php echo $this->translate('Upgrade') ?>
+                        </a>
+                    </div>
+                    <div style="float: right; padding: 4px 30px 5px 5px;">
+                        <b><?php echo empty($record['credits_left']) ? 0 : $record['credits_left'] ?></b> <?php echo $this->translate('Credits Left') ?>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            <?php endforeach; ?>        
+        <?php endforeach; ?>
+        <p class="h-space-1"> </p>
+        <div class="h-line"> </div>
+        <p class="h-space-1"> </p>
+        <div class="address-wrapper">
+            <div>        
+                <h2><?php echo $this->translate('Your Address') ?> <a href="<?php echo $this->url("billing", array('action' => 'detail')) ?>"><?php echo $this->translate('edit') ?></a></h2>
+            </div>
+            <div class="content-row">
+                <div class="content-row-left"><?php echo $this->translate('Company') ?></div>
+                <div class="content-row-right"><?php echo $this->accountAddress->company; ?></div>
+            </div>
+            <div class="clear"></div>
+            <div class="content-row">
+                <div class="content-row-left"><?php echo $this->translate('First name') ?></div>
+                <div class="content-row-right"><?php echo $this->accountAddress->firstName; ?></div>
+            </div>
+            <div class="clear"></div>
+            <div class="content-row">
+                <div class="content-row-left"><?php echo $this->translate('Last name') ?></div>
+                <div class="content-row-right"><?php echo $this->accountAddress->lastName; ?></div>
+            </div>
+            <div class="clear"></div>
+            <div class="content-row">
+                <div class="content-row-left"><?php echo $this->translate('Department') ?></div>
+                <div class="content-row-right"><?php echo $this->accountAddress->department; ?></div>
+            </div>
+            <div class="clear"></div>
+            <div class="content-row">
+                <div class="content-row-left"><?php echo $this->translate('Address') ?></div>
+                <div class="content-row-right"><?php echo $this->accountAddress->streetAndNumber; ?></div>
+            </div>
+            <div class="clear"></div>
+            <div class="content-row">
+                <div class="content-row-left"><?php echo $this->translate('Zip code') ?></div>
+                <div class="content-row-right"><?php echo $this->accountAddress->zipcode; ?></div>
+            </div>
+            <div class="clear"></div>
+            <div class="content-row">
+                <div class="content-row-left"><?php echo $this->translate('City') ?></div>
+                <div class="content-row-right"><?php echo $this->accountAddress->city; ?></div>
+            </div>
+            <div class="clear"></div>
+            <div class="content-row">
+                <div class="content-row-left"><?php echo $this->translate('Country') ?></div>
+                <div class="content-row-right"><?php echo $this->accountAddress->country; ?></div>
+            </div>
+            <div class="clear"></div>
+            <div class="content-row">
+                <div class="content-row-left"><?php echo $this->translate('Phone number') ?></div>
+                <div class="content-row-right"><?php echo $this->accountAddress->phoneNumber; ?></div>
+            </div>
+        </div>
+    </div>
+</div> 
+<div class="clear"></div>

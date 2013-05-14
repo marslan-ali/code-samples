@@ -1,0 +1,83 @@
+<div id="main-content"> <!-- Main Content Section with everything -->
+
+			<noscript> <!-- Show a notification if the user has disabled javascript -->
+				<div class="notification error png_bg">
+					<div>
+						Javascript is disabled or is not supported by your browser. Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.
+					</div>
+				</div>
+			</noscript>
+
+			<!-- Page Head -->
+			<h2><?php echo $this->escape($this->title); ?></h2>
+			<p id="page-intro"><?php echo $this->escape($this->subTitle); ?></p>
+
+			<div class="clear"></div> <!-- End .clear -->
+
+			<div class="content-box"><!-- Start Content Box -->
+
+				<div class="content-box-header">
+
+					<h3>Case</h3>
+
+					<div class="clear"></div>
+
+				</div> <!-- End .content-box-header -->
+
+				<div class="content-box-content">
+                                	<table>
+                                            <?php $count = 1; foreach($this->caseItems as $caseItems): ?>
+						<?php if(!empty($caseItems->picture_name1)): ?>
+						<tr>
+							<td style="font-weight:bold" valign="center">Item <?php echo ++$count; ?></td>
+                          	<td><?php echo $this->showFile($this->baseUrl("/../application_data/insurance/images/{$this->caseId}/{$caseItems->picture_name1}"))?></td>
+						</tr>
+						<?php endif; ?>
+						<?php if(!empty($caseItems->picture_name2)): ?>
+						<tr>
+							<td style="font-weight:bold" valign="center">Item <?php echo ++$count; ?></td>
+                          	<td><?php echo $this->showFile($this->baseUrl("/../application_data/insurance/images/{$this->caseId}/{$caseItems->picture_name2}"))?></td>
+						</tr>
+						<?php endif; ?>
+						<?php if(!empty($caseItems->picture_name3)): ?>
+						<tr>
+							<td style="font-weight:bold" valign="center">Item <?php echo ++$count; ?></td>
+                          	<td><?php echo $this->showFile($this->baseUrl("/../application_data/insurance/images/{$this->caseId}/{$caseItems->picture_name3}"))?></td>
+						</tr>
+						<?php endif; ?>
+						<?php if(!empty($caseItems->picture_name4)): ?>
+						<tr>
+							<td style="font-weight:bold" valign="center">Item <?php echo ++$count; ?></td>
+                          	<td><?php echo $this->showFile($this->baseUrl("/../application_data/insurance/images/{$this->caseId}/{$caseItems->picture_name4}"))?></td>
+						</tr>
+						<?php endif; ?>
+						<?php if(!empty($caseItems->picture_name5)): ?>
+						<tr>
+							<td style="font-weight:bold" valign="center">Item <?php echo ++$count; ?></td>
+                          	<td><?php echo $this->showFile($this->baseUrl("/../application_data/insurance/images/{$this->caseId}/{$caseItems->picture_name5}"))?></td>
+						</tr>
+						<?php endif; ?>
+
+						<tr>
+							<td style="font-weight:bold">Comments</td>
+							<td><?php echo $caseItems->comments ?></td>
+						</tr>
+                                           <?php endforeach; ?>
+                                        </table>
+
+				</div> <!-- End .content-box-content -->
+                                <div align="center">
+                                    <input class="number current" type="button" value="Go Back" onclick="history.back()">
+                                </div>
+
+			</div> <!-- End .content-box -->
+
+			<div class="clear"></div>
+
+			<div id="footer">
+				<small>
+						&#169; 2010 <a href="http://www.smartic.cl" target="_blank">Smartic</a> | <a href="#">Arriba</a>
+				</small>
+			</div><!-- End #footer -->
+
+		</div>

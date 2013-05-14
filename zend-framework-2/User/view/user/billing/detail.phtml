@@ -1,0 +1,42 @@
+<div id="sidebar-left"> 
+    <div class="row"> 
+        <ul id="sub-nav" class="without-icons">
+            <li>
+                <a class="<?php echo $this->ControllerName() == "User\Controller\Billing" && $this->ActionName() == "overview" ? "active" : ""; ?>" href="<?php echo $this->url('billing', array('action' => 'overview')) ?>"><?php echo $this->translate('Overview') ?></a>                                      
+            </li> 
+            <li> 
+                <a class="<?php echo $this->ControllerName() == "User\Controller\Billing" && $this->ActionName() == "detail" ? "active" : ""; ?>" href="<?php echo $this->url('billing', array('action' => 'detail')) ?>"><?php echo $this->translate('Billing Details') ?></a>
+            </li> 
+            <li> 
+                <a href="#"><?php echo $this->translate('Invoices') ?></a>
+            </li> 
+            <li> 
+                <a class="<?php echo $this->ControllerName() == "User\Controller\Billing" && $this->ActionName() == "buy-credits" ? "active" : ""; ?>" href="<?php echo $this->url('billing', array('action' => 'buy-credits')) ?>"><?php echo $this->translate('Selected Plan') ?></a>
+            </li> 
+        </ul>
+    </div> 
+</div>
+<div id="content" class="fixed-width"> 
+    <div id="content-inner"> 
+        <ul class="breadcrumb"> 
+            <li><a href="#"><?php echo $this->translate('Billing') ?></a> <span class="right-arrow"></span></li> 
+            <li><?php echo $this->translate('Billing details') ?></li> 
+        </ul>   
+        <p class="h-space-1"></p>
+        <div>                
+            <h2><?php echo $this->translate('Your Billing Details') ?></h2>
+            <?php
+            //print_r($address->id);
+            //exit;
+            $form = $this->detailForm;
+            $form->setAttribute('action', $this->url('billing', array('action' => 'detail', 'id' => $this->id)));
+            //$form->setAttribute('action', $this->url('goal', array('action' => 'edit', 'site_id' => $this->site->id,'id'=>$this->id)));
+            $form->prepare();
+            echo $this->form()->openTag($form)
+            ?>
+            <?php echo $this->partial('billing/_form',array('form'=>$form)); ?>  
+            <?php echo $this->form()->closeTag() ?>
+        </div> 
+    </div>
+</div> 
+<div class="clear"></div>

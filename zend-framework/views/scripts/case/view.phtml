@@ -1,0 +1,171 @@
+<?php
+$this->jQuery()->enable();
+?>
+<div id="main-content"> <!-- Main Content Section with everything -->
+
+    <noscript> <!-- Show a notification if the user has disabled javascript -->
+        <div class="notification error png_bg">
+            <div>
+						Javascript is disabled or is not supported by your browser. Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.
+            </div>
+        </div>
+    </noscript>
+
+    <!-- Page Head -->
+    <h2><?php echo $this->escape($this->title); ?></h2>
+    <p id="page-intro">Show Case detail</p>
+
+    <div class="clear"></div> <!-- End .clear -->
+
+    <div class="content-box"><!-- Start Content Box -->
+
+        <div class="content-box-header">
+
+            <h3>Siniestro</h3>
+
+            <div class="clear"></div>
+
+        </div> <!-- End .content-box-header -->
+
+        <div class="content-box-content">
+            <table>
+                <tr>
+                    <td colspan="2" style="font-weight:bold;padding-left: 150px">Case Data</td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight:bold">Case Number</td>
+                    <td><?php echo $this->caseDetails->case_number ?></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" style="font-weight:bold;padding-left: 150px">Insured Data</td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight:bold">Name</td>
+                    <td><?php echo $this->caseDetails->name ?></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold">ID Number</td>
+                    <td><?php echo $this->caseDetails->id_number ?></td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight:bold">Home Address</td>
+                    <td><?php echo $this->caseDetails->home_address ?></td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight:bold">Country</td>
+                    <td><?php echo $this->caseDetails->country ?></td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight:bold">City</td>
+                    <td><?php echo $this->caseDetails->city ?></td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight:bold">Telephone</td>
+                    <td><?php echo $this->caseDetails->telephone ?></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold">Email</td>
+                    <td><?php echo $this->caseDetails->email ?></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold">Insurance Company</td>
+                    <td><?php echo $this->caseDetails->insurance_company ?></td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight:bold">Insurance Office</td>
+                    <td><?php echo $this->caseDetails->insurance_office ?></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" style="font-weight:bold;padding-left: 150px">Policy Data</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold">Insurance Policy</td>
+                    <td><?php echo $this->caseDetails->insurance_policy ?></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold">Policy Start Date</td>
+                    <td><?php echo $this->caseDetails->policy_startdate ?></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold">Policy End Date</td>
+                    <td><?php echo $this->caseDetails->policy_enddate ?></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold">Items</td>
+                    <td><?php echo $this->caseDetails->items ?></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold">Insured Amount</td>
+                    <td><?php echo $this->caseDetails->insured_amount ?></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold">Prima</td>
+                    <td><?php echo $this->caseDetails->prima ?></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold">Matter Insured</td>
+                    <td><?php echo $this->caseDetails->matter_insured ?></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold">Coverage Effected</td>
+                    <td><?php echo $this->caseDetails->converage_effected ?></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold">Copayments</td>
+                    <td><?php echo $this->caseDetails->copayment ?></td>
+                </tr>
+
+
+                <tr>
+                    <td colspan="2" style="font-weight:bold;padding-left: 150px">Case Additional Data</td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight:bold">Date Of Registration</td>
+                    <td><?php echo $this->caseDetails->register_at ?></td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight:bold">Date Of Report</td>
+                    <td><?php echo $this->caseDetails->reported_at ?></td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight:bold">Date Of Collection</td>
+                    <td><?php echo $this->caseDetails->collected_at ?></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold">Date Of Allocation</td>
+                    <td><?php echo $this->caseDetails->allocated_at ?></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold">Police Report</td>
+                    <td><?php echo $this->caseDetails->comments ?></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><a href="<?php echo $this->url(array("action"=>"view-all-attachments")) ?>">View All Attachments</a></td>
+                </tr>
+
+            </table>
+        </div> <!-- End .content-box-content -->
+
+    </div> <!-- End .content-box -->
+
+    <div class="clear"></div>
+
+    <div id="footer">
+        <small>
+            &#169; 2010 <a href="http://www.smartic.cl" target="_blank">Smartic</a> | <a href="#">Arriba</a>
+        </small>
+    </div><!-- End #footer -->
+
+</div>

@@ -1,0 +1,47 @@
+<div class="row"> 
+    <a class="add-project" href="<?php echo $this->url('project', array("action" => 'add')) ?>"> 
+        <span class="icon-plus"> </span>  <?php echo $this->translate('Add new project') ?> <span class="icon-add-project"> </span>
+    </a> 
+</div>
+<div class="row">
+    <?php if (!empty($this->projects)): ?>
+        <ul id="sub-nav">
+            <?php foreach ($this->projects as $project): ?>                    
+                <li class="nav-project">
+                    <a href="<?php echo $this->url('project', array('action' => 'list', 'id' => $project->id)) ?>"><span class="down-arrow white icon"></span> <?php echo $project->name ?> <span style="float: right;">(<?php echo count($sites[$project->id]) ?>)</span></a>
+                    <?php foreach ($sites[$project->id] as $site): ?>
+                        <ul class="nav nav-list">
+                            <li class="">
+                                <?php $count = count($campaigns[$site->id]) ?>
+                                <a href="<?php echo $this->url('project', array('action' => 'site', 'id' => $site->id)) ?>"><span class="down-arrow icon"></span> <?php echo $site->domain ?> <span style="float: right;">(<?php echo $count ?>)</span></a>
+                                <ul class="nav nav-list">
+                                    <?php if ($count > 0): ?>
+                                        <?php foreach ($campaigns[$site->id] as $campaign): ?>
+                                            <li>
+                                                <a href="<?php echo $this->url('campaign', array('action' => 'index', 'id' => $campaign['campaign_id'])) ?>"><span class="icon"><img src="/images/<?php echo $campaign['icon']; ?>" /> </span> <?php echo $campaign['campaign_name']; ?></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="add-first-campaign"><span class="icon-plus icon"> </span> Add New Campaign</a>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>           
+                                        <li>
+                                            <a href="#" class="add-first-campaign"><span class="icon-plus icon"> </span> Add First Campaign</a>
+                                        </li>
+                                    <?php endif; ?>           
+                                </ul>
+                            </li>
+                        </ul>
+                    <?php endforeach; ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <script type="text/javascript">
+            submenu = new toggleSubMenu('sub-nav');
+        </script>
+    <?php else: ?>
+        <ul id="sub-nav">
+            <li>No Project Found</li>
+        </ul>
+    <?php endif; ?>
+</div>

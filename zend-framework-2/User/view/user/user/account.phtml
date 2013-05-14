@@ -1,0 +1,92 @@
+<div id="sidebar-left"> 
+    <div class="row"> 
+        <ul id="sub-nav" class="without-icons">
+            <li>
+                <a class="active" href="<?php echo $this->url('user', array('action' => 'account')) ?>"><?php echo $this->translate('User') ?></a>
+            </li> 
+        </ul>
+    </div> 
+</div>
+<div id="content" class="fixed-width"> 
+    <div id="content-inner"> 
+        <ul class="breadcrumb"> 
+            <li><a href="#"><?php echo $this->translate('My Account') ?></a> <span class="right-arrow"></span></li> 
+            <li><?php echo $this->translate('User') ?></li> 
+        </ul>   
+        <p class="h-space-1"></p>
+        <div>                
+            <h2><?php echo $this->translate('My Login Details') ?></h2>
+            <?php
+            $form = $this->accountForm;
+            $form->setAttribute('action', $this->url('user', array('action' => 'account')));
+            $form->prepare();
+            ?>
+            <?php echo $this->form()->openTag($form) ?>
+            <?php echo $this->formInput($form->get('id')) ?>
+            <div class="content-row">
+                <div class="content-row-left"><?php echo $this->translate('Contact Details') ?></div>
+                <div class="content-row-right-double"></div>
+            </div>
+            <div class="content-row">
+                <div class="content-row-left">
+                    <?php echo $this->translate('Your Name') ?>
+                </div>
+                <div class="content-row-right">
+                    <?php echo $this->formInput($form->get('name_first')) ?>
+                    <div class="error-holder"><?php echo $this->formElementErrors($form->get('name_first')) ?></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="content-row-right">
+                    <?php echo $this->formInput($form->get('name_last')) ?>
+                    <div class="error-holder"><?php echo $this->formElementErrors($form->get('name_last')) ?></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="content-row">
+                <div class="content-row-left">
+                    <?php echo $this->formLabel($form->get('email')) ?>
+                </div>
+                <div class="content-row-right-double">
+                    <?php echo $this->formInput($form->get('email')) ?>
+                    <div class="error-holder"><?php echo $this->formElementErrors($form->get('email')) ?></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+            <div class="content-row">
+                <div class="content-row-left">
+                    <?php echo $this->formLabel($form->get('password')) ?>
+                </div>
+                <div class="content-row-right">
+                    <?php echo $this->formInput($form->get('password')) ?>
+                    <div class="error-holder"><?php echo $this->formElementErrors($form->get('password')) ?></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="content-row">
+                <div class="content-row-left">
+                    <?php echo $this->formLabel($form->get('retype_password')) ?>
+                </div>
+                <div class="content-row-right">
+                    <?php echo $this->formInput($form->get('retype_password')) ?>
+                    <div class="error-holder"><?php echo $this->formElementErrors($form->get('retype_password')) ?></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="content-row">
+                <div class="content-row-left">
+
+                </div>
+                <div class="content-row-right">
+                    <?php echo $this->formInput($form->get('submit')) ?>
+                </div>
+            </div>
+            <?php echo $this->form()->closeTag() ?>
+        </div> 
+    </div>
+</div> 
+<div class="clear"></div>

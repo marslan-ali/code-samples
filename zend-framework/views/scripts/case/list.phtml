@@ -1,0 +1,87 @@
+	<div id="main-content"> <!-- Main Content Section with everything -->
+			<noscript> <!-- Show a notification if the user has disabled javascript -->
+				<div class="notification error png_bg">
+					<div>
+						Javascript is disabled or is not supported by your browser. Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.
+					</div>
+				</div>
+			</noscript>
+			
+			<!-- Page Head -->
+			<h2><?php echo $this->escape($this->title); ?></h2>
+			<p id="page-intro"><?php echo $this->subTitle ?></p>
+			<ul class="shortcut-buttons-set"> <!-- Replace the icons URL's with your own -->
+				
+				<li><a class="shortcut-button" href="<?php echo $this->url(array('controller'=>'case',
+				'action'=>'add','id'=>'','page'=>''));?>"><span>
+					<img src="<?php echo $this->baseUrl()?>/images/icons/add.png" alt="icon" /><br />
+					Add Case
+				</span></a></li>
+				
+			</ul><!-- End .shortcut-buttons-set -->
+			<div class="clear"></div> <!-- End .clear -->
+			
+			<div class="content-box"><!-- Start Content Box -->
+				
+				<div class="content-box-header">
+					
+					<h3>Users List</h3>
+					
+					
+					<div class="clear"></div>
+					
+				</div> <!-- End .content-box-header -->
+				
+				<div class="content-box-content">
+					
+					<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+						
+						<table>
+							<thead>
+							<tr>
+								<th>Case Number</th>
+								<th>Case Name</th>
+								<th>Date Of Registration</th>
+								<th>Date Of Report</th>
+								<th>Date Of Allocation</th>
+								<th>Edit</th>
+								<th>View</th>
+							</tr>
+							</thead>
+							
+							<tbody>
+							<?php foreach($this->paginator as $record): ?>
+							<tr>
+								<td><?php echo $record["case_number"] ?></td>
+								<td><?php echo $record["name"] ?></td>
+								<td><?php echo $record["register_at"] ?></td>
+								<td><?php echo $record["reported_at"] ?></td>
+								<td><?php echo $record["allocated_at"] ?></td>
+								<td><a href="<?php echo $this->url(array("action"=>"edit","id"=>$record["id"],"page"=>"")) ?>"><img src="<?php echo $this->baseUrl()?>/images/icons/application--pencil.png" alt="Edit" /></a></td>
+								<td><a href="<?php echo $this->url(array("action"=>"view","id"=>$record["id"],"page"=>"")) ?>"><img src="<?php echo $this->baseUrl()?>/images/icons/application--pencil.png" alt="View" /></a></td>
+							</tr>
+							<?php endforeach; ?>
+							</tbody>
+							<?php echo $this->paginationControl($this->paginator,'Sliding','paginaton.phtml') ?>
+							
+							
+						</table>
+						
+					</div> <!-- End #tab1 -->
+					
+					
+				</div> <!-- End .content-box-content -->
+				
+			</div> <!-- End .content-box -->
+			
+			<div class="clear"></div>
+			
+			<div id="footer">
+				<small>
+						&#169; 2010 <a href="http://www.smartic.cl" target="_blank">Smartic</a> | <a href="#">Arriba</a>
+				</small>
+			</div><!-- End #footer -->
+			
+		</div> <!-- End #main-content -->
+
+

@@ -1,0 +1,69 @@
+<?php echo $this->formHidden($form->get('id')); ?>
+<?php echo $this->formInput($form->get('account_id')); ?>
+<div class="content-row">
+    <div class="content-row-left">
+        <?php echo $this->formLabel($form->get('company')); ?>
+    </div>
+    <div class="content-row-right-double">
+        <?php echo $this->formInput($form->get('company')) ?>
+    </div>
+</div>
+<div class="content-row">
+    <div class="content-row-left">
+        <?php echo $this->translate('Contact Person') ?>
+    </div>
+    <div class="content-row-right">
+        <?php echo $this->formInput($form->get('name_first')) ?>
+    </div>
+    <div class="content-row-right">
+        <?php echo $this->formInput($form->get('name_last')) ?>
+    </div>
+</div>
+<div class="content-row">
+    <div class="content-row-left">
+        <?php echo $this->formLabel($form->get('department')) ?>
+    </div>
+    <div class="content-row-right">
+        <?php echo $this->formSelect($form->get('department')) ?>
+    </div>
+</div>
+<div class="content-row">
+    <div class="content-row-left">
+        <?php echo $this->formLabel($form->get('street_and_number')) ?>
+    </div>
+    <div class="content-row-right-right-big">
+        <?php echo $this->formInput($form->get('street_and_number')) ?>
+    </div>
+    <div class="content-row-right-small">
+        <?php echo $this->formInput($form->get('zipcode')) ?>
+    </div>
+</div>
+<div class="content-row">
+    <div class="content-row-left">
+
+    </div>
+    <div class="content-row-right">
+        <?php echo $this->formInput($form->get('city')) ?>
+    </div>
+    <div class="content-row-right">
+        <?php echo $this->formSelect($form->get('country')) ?>
+    </div>
+</div>
+<div class="content-row">
+    <div class="content-row-left">
+        <?php echo $this->formLabel($form->get('phonenumber')) ?>
+    </div>
+    <div class="content-row-right-double">
+        <?php echo $this->formInput($form->get('phonenumber')) ?>
+    </div>
+</div>
+<?php echo $this->formInput($form->get('id')) ?> 
+<?php echo $this->formInput($form->get('account_id')) ?> 
+<div class="content-row">
+    <div class="content-row-left">
+
+    </div>
+    <div class="content-row-right">
+        <?php echo $this->formInput($form->get('submit')) ?>
+    </div>
+</div>
